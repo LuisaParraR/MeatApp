@@ -8,32 +8,28 @@
 				<style>
 					html,
 					body {
-						margin: 0;
-						padding: 0;
-						font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-						font-size: 22px;
+					margin: 0;
+					padding: 0;
+					font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+					font-size: 22px;
 					}
 					.navbar {
-						width: 100%;
-						height: 40px;
-						background-color: #D32F2F;
-						display: flex;
-						align-items: center;
-						justify-content: space-between;
-						padding: 16px;
+					width: 100%;
+					height: 40px;
+					background-color: #D32F2F;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					padding: 16px;
 					}
 					.brand {
-						text-decoration:none;
-						color: #fff;
+					text-decoration:none;
+					color: #fff;
 					}
 					.navbar-button {
-						margin-right: 50px;
-						text-decoration:none;
-						color: #fff;
-					}
-					.main-content {
-						margin: 0 auto;
-						width: 76vw;
+					margin-right: 50px;
+					text-decoration:none;
+					color: #fff;
 					}
 				</style>
 			</head>
@@ -42,11 +38,10 @@
 			</body>
 		</html>
 	</xsl:template>
-
+	
 	<xsl:template match="navbar">
 		<nav class="navbar">
 			<a class="brand" href="index.jsp">MeatApp</a>
-			<xsl:apply-templates />
 		</nav>
 	</xsl:template>
 	
@@ -63,15 +58,24 @@
 		</div>
 	</xsl:template>
 	
+
 	<xsl:template match="main">
-		<section class="main-content">
-			<h1>Meatings</h1>
-			<xsl:apply-templates />
-		</section>
+	<h2>Login</h2>
+	<table>
+	<form action="login.jsp" method="post">
+			<tr><td>Username:</td><td><input type="text" name="username" required="true" /></td></tr> 
+			<tr><td>Password:</td><td><input type="password" name="password" required="true" /></td></tr>
+			<tr><td></td><td><input type="hidden" name="submitted" value="yes" /></td></tr> 
+			<tr><td><input type="submit" /></td></tr>
+		</form>
+	</table>
 	</xsl:template>
 	
-	<xsl:template match="poll">
-		<p><xsl:value-of select="username"/> - <a href="polldetails.jsp?polltitle={title}"> <xsl:value-of select="title"/></a></p>
+	<xsl:template match="success">
+	<p>Login successful</p>
+		<p>Welcome,</p>
+		<p>Click <a href="index.jsp">here</a> to go to the main page.</p>
+	
 	</xsl:template>
 	
 	
